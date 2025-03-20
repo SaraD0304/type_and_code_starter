@@ -1,5 +1,5 @@
 export const configurazione = {
-  testo: "G",
+  testo: "C",
 
   dimensione: 0.8,
   interlinea: 0.7,
@@ -12,24 +12,6 @@ export const configurazione = {
   nascondiInterfaccia: false,
 };
 
-/**
- * Disegna punto
- * Metti qui quello che vuoi disegnare per ogni punto della font!
- *
- * @typedef {Object} Ingredienti
- * @property {number} x - La coordinata x del punto
- * @property {number} y - La coordinata y del punto
- * @property {number} angolo - L'angolo della curva della font in quel punto
- * @property {number} indice - Il numero del punto nella sequenza (0, 1, 2, 3, ...)
- * @property {number} unita - Unita' di misura: corrisponde al 10% della dimensione più piccola della finestra (larghezza o altezza)
- * @property {number} volume - Il volume del microfono - Varia da 0 a 1
- * @property {number} frameCount - Il numero di frame passati dall'avvio del programma
- * @property {number} [alpha] - Device orientation alpha angle (z-axis rotation) - Varia da 0 a 360
- * @property {number} [beta] - Device orientation beta angle (front-to-back tilt) - Varia da -90 a 90
- * @property {number} [gamma] - Device orientation gamma angle (left-to-right tilt) - Varia da -90 a 90
- *
- * @param {Ingredienti} ingredienti
- */
 export function disegnaPunto({
   x,
   y,
@@ -42,19 +24,15 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
-  const size = sin((frameCount + indice) * 6) * ((volume * unita) / 2) * unita;
+  const size = sin(frameCount * 6) * ((volume * 10) / 2) * 10;
+  let lunghezza = map(volume * 60, 0, 1, 0, 50);
 
-  if (indice % 2 == 0) {
-    fill("black");
-  } else {
-    fill("white");
-  }
-  noStroke();
-
-  push();
-  translate(x, y);
-  ellipse(0, 0, size);
-  pop();
+  stroke("white");
+  strokeWeight = lunghezza;
+  translate(width / 2, height / 2);
+  rotate(lunghezza);
+  fill("white");
+  ellipse(0, 0, 10, lunghezza);
 }
 
 /**
@@ -77,10 +55,10 @@ export function impostazioni() {
  * @param {function} disegnaTesto - La funzione che disegna il testo
  */
 export function sotto(disegnaTesto) {
-  background("deeppink");
+  background("white");
 
   // [INFO] Rimuovi il commento per disegnare il testo
-  fill("white");
+  fill("darkred");
   disegnaTesto();
 }
 
