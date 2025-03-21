@@ -25,11 +25,8 @@ export function disegnaPunto({
   gamma = 0,
 }) {
   push();
-  let larghezza = map(sin(frameCount * 20), -1, 1, -100, 0);
-  stroke("purple");
-
-  ellipse(x, y, larghezza, 2);
-
+  translate(x, y);
+  line(0, 0, alpha, beta);
   pop();
 }
 
@@ -43,9 +40,9 @@ export function impostazioni() {
 
 //Disegna sotto i punti
 export function sotto(disegnaTesto) {
-  background("black");
+  background("white");
 
-  fill("black");
+  fill("orange");
   disegnaTesto();
 }
 
