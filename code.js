@@ -26,7 +26,10 @@ export function disegnaPunto({
 }) {
   push();
   translate(x, y);
-  line(0, 0, alpha, beta);
+  stroke("white");
+  let g = map(gamma, -90, 90, -unita, unita);
+  let b = map(beta, -90, 90, -unita, unita);
+  line(0, 0, g, b);
   pop();
 }
 
@@ -40,9 +43,9 @@ export function impostazioni() {
 
 //Disegna sotto i punti
 export function sotto(disegnaTesto) {
-  background("white");
+  background("lightblue");
 
-  fill("orange");
+  fill("lightblue");
   disegnaTesto();
 }
 
