@@ -9,7 +9,7 @@ export const configurazione = {
   sensibilitàMicrofonoBase: 1,
   densitàPuntiBase: 4,
 
-  nascondiInterfaccia: true,
+  nascondiInterfaccia: false,
 };
 
 export function disegnaPunto({
