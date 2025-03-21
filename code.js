@@ -24,12 +24,14 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
+  const size = sin(frameCount + indice) * (volume * 100);
+
+  fill("purple");
+  noStroke();
+
   push();
-  let larghezza = map(sin(frameCount * 20), -1, 1, -100, 0);
-  stroke("purple");
-
-  ellipse(x, y, larghezza, 2);
-
+  translate(x, y);
+  ellipse(0, 0, size);
   pop();
 }
 
