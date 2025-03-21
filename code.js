@@ -24,13 +24,14 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
-  push();
-  let larghezza = map(sin(frameCount * 20), -1, 1, -100, 0);
-  stroke("purple");
+  //const size = sin((frameCount + indice) * 5) * ((volume * 20) / 2);
+  let lunghezza = map(volume, 0, 1, 0, 50);
 
-  ellipse(x, y, larghezza, 2);
-
-  pop();
+  noStroke();
+  strokeWeight(10);
+  fill("red");
+  rotate(x + width / 2, y);
+  rect(0, 0, lunghezza, lunghezza);
 }
 
 export function caricamentoRisorse() {}
@@ -43,7 +44,7 @@ export function impostazioni() {
 
 //Disegna sotto i punti
 export function sotto(disegnaTesto) {
-  background("black");
+  background("white");
 
   fill("black");
   disegnaTesto();
