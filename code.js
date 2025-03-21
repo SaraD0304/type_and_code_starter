@@ -6,7 +6,7 @@ export const configurazione = {
   allineamento: "centro",
   percorsoFont: "./assets/InputMonoCondensed-BoldItalic.ttf",
 
-  sensibilitàMicrofonoBase: 10,
+  sensibilitàMicrofonoBase: 1,
   densitàPuntiBase: 1,
 
   nascondiInterfaccia: false,
@@ -24,7 +24,7 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
-  const size = sin(frameCount * 6) * ((volume * 200) / 2) * 10;
+  const size = sin(frameCount * 6) * ((volume * 10) / 2) * 10;
   let lunghezza = map(volume * 60, 0, 1, 0, 50);
 
   stroke("white");
