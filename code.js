@@ -30,7 +30,7 @@ export function disegnaPunto({
   noStroke();
   strokeWeight(10);
   fill("red");
-  rotate(x + width / 2, y);
+  rotate(x, y);
   rect(0, 0, lunghezza, lunghezza);
 }
 
