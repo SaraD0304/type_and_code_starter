@@ -24,14 +24,20 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
-  //const size = sin((frameCount + indice) * 5) * ((volume * 20) / 2);
-  let lunghezza = map(volume, 0, 1, 0, 50);
+  const size = sin(frameCount + indice) * ((volume * 100) / 2) * 10;
 
+  fill("white");
   noStroke();
-  strokeWeight(10);
-  fill("red");
-  rotate(x, y);
-  rect(0, 0, lunghezza, lunghezza);
+
+  push();
+  translate(x, y);
+  ellipse(0, 0, size);
+  pop();
+
+  strokeWeight(40);
+
+  translate(300, 100);
+  rotate(frameCount);
 }
 
 export function caricamentoRisorse() {}
@@ -46,7 +52,7 @@ export function impostazioni() {
 export function sotto(disegnaTesto) {
   background("white");
 
-  fill("black");
+  fill("lightpink");
   disegnaTesto();
 }
 
